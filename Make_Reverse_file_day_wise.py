@@ -8,15 +8,16 @@ file_list = [".txt",".html",".java",".js"]
 def create_folders_between_dates(Current_date):
     Convert_date_DATETIME = datetime.strptime(Current_date, "%Y-%m-%d")
     Current_Day_Number = Convert_date_DATETIME.day
+    print(Current_Day_Number)
     year = Convert_date_DATETIME.year # Get year correctly
-    # month = Convert_date_DATETIME.month
+    Current_month = Convert_date_DATETIME.month
     
     base_path = "C:/Users/hemanshu.marwadi/Desktop/OS_MAKE_DIR"  
-    for month in range(1,13):
+    for month in range(Current_month,13):
         # Find_Remaining_Days = total_days - Current_Day_Number 
         total_days = calendar.monthrange(year,month)[1]
 
-        for i in range(1, total_days + 1):
+        for i in range(Current_Day_Number, total_days + 1):
             current_date_obj = datetime(year, month, i)
             s = current_date_obj.strftime("%Y-%m-%d")
             folder_path = os.path.join(base_path, s)
